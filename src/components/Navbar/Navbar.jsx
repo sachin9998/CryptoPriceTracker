@@ -1,6 +1,7 @@
 // import React from 'react'
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
+import arrowIcon from "../../assets/arrow_icon.png";
 
 const Navbar = () => {
 	return (
@@ -23,6 +24,10 @@ const Navbar = () => {
 					<option value="euro">Euro</option>
 					<option value="inr">INR</option>
 				</select>
+
+				<button type="button">
+					Signup <img src={arrowIcon} alt="" />
+				</button>
 			</div>
 		</div>
 	);
