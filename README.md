@@ -4,7 +4,7 @@ This is a Crypto price tracking web application built with React using Vite and 
 
 ## Demo
 
-Check out the live demo: [Crypto Price Tracker](https://crypto-price-tracker-three-sepia.vercel.app/)
+Check out the live demo: https://crypto121.vercel.app/
 
 ## Screenshots
 
