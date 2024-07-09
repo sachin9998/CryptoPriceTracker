@@ -9,6 +9,7 @@ const CoinContextProvider = (props) => {
 		symbol: "$",
 	});
 
+	// Fetch all coin data
 	const fetchAllCoin = async () => {
 		const options = {
 			method: "GET",
