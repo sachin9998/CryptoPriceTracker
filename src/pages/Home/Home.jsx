@@ -7,6 +7,22 @@ const Home = () => {
 	const { allCoin, currency } = useContext(CoinContext);
 	const [displayCoin, setDisplayCoin] = useState([]);
 
+	const [input, setInput] = useState("");
+
+	const handleInput = (event) => {
+		setInput(event.target.value);
+	}
+
+	const searchHandler = async (event) => {
+		event.preventDefault();
+
+		const coins = await allCoin.filter((item) => {
+			return item.name.toLowerCase().includes(input.toLocaleLowerCase());
+		})
+
+		setDisplayCoin(coins);
+	}
+
 	useEffect(() => {
 		setDisplayCoin(allCoin);
 	}, [allCoin]);
@@ -24,8 +40,13 @@ const Home = () => {
 				</p>
 
 				{/* Search Crypto Form */}
-				<form>
-					<input type="text" placeholder="Search crypto." />
+				<form onSubmit={searchHandler}>
+					<input 
+						onChange={handleInput}
+						type="text"
+						value={input}
+						required
+						placeholder="Search crypto..." />
 
 					<button type="submit">Search</button>
 				</form>
