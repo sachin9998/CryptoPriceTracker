@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import "./Coin.css";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { CoinContext } from "../../context/CoinContext";
 import Loader from "../../components/Loader/Loader";
 import LineChart from "../../components/LineChart/LineChart";
@@ -16,7 +16,7 @@ const Coin = () => {
 			method: "GET",
 			headers: {
 				accept: "application/json",
-				"x-cg-demo-api-key": "CG-3ZPqfj5SfNfuSHmzYZAzgGnv",
+				"x-cg-demo-api-key": import.meta.env.VITE_REACT_APP_API_KEY,
 			},
 		};
 
@@ -31,7 +31,7 @@ const Coin = () => {
 			method: "GET",
 			headers: {
 				accept: "application/json",
-				"x-cg-demo-api-key": "CG-3ZPqfj5SfNfuSHmzYZAzgGnv",
+				"x-cg-demo-api-key": import.meta.env.VITE_REACT_APP_API_KEY,
 			},
 		};
 
