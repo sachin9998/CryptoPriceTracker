@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import "./Home.css";
 import { CoinContext } from "../../context/CoinContext";
 import { useState } from "react";
+import {Link} from "react-router-dom"
 
 const Home = () => {
 	const { allCoin, currency } = useContext(CoinContext);
@@ -11,6 +12,10 @@ const Home = () => {
 
 	const handleInput = (event) => {
 		setInput(event.target.value);
+
+		if (event.target.value === "") {
+			setDisplayCoin(allCoin);
+		}
 	}
 
 	const searchHandler = async (event) => {
@@ -41,12 +46,19 @@ const Home = () => {
 
 				{/* Search Crypto Form */}
 				<form onSubmit={searchHandler}>
+					
 					<input 
 						onChange={handleInput}
+						list='coinlist'
 						type="text"
 						value={input}
 						required
-						placeholder="Search crypto..." />
+						placeholder="Search crypto...
+						" />
+					
+					<datalist id="coinlist">
+						{allCoin.map((item, index) => (<option key={index} value={item.name} />))}
+					</datalist>
 
 					<button type="submit">Search</button>
 				</form>
@@ -61,9 +73,10 @@ const Home = () => {
 					<p className="market-cap">Market Cap</p>
 				</div>
 
+				{/* Apply map function to display list of top 10 crypto currency */}
 				{displayCoin.slice(0, 10).map((item) => {
 					return (
-						<div key={item.id} className="table-layout">
+						<Link to={`/coin/${item.id}`} key={item.id} className="table-layout">
 							<p>{item.market_cap_rank}</p>
 
 							<div>
@@ -82,7 +95,7 @@ const Home = () => {
 							</p>
 
 							<p className="market-cap">{`${currency.symbol} ${item.market_cap.toLocaleString()}`}</p>
-						</div>
+						</Link>
 					);
 				})}
 			</div>
