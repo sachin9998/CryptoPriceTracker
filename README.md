@@ -61,19 +61,19 @@ To run this project locally, follow these steps:
 
 5. Open your browser and visit http://localhost:3000 to view the app.
 
-Usage:
+## Usage:
   - Upon opening the app, you'll see a list of the top 10 cryptocurrencies.
   - Click on any cryptocurrency to view more details and real-time market data.
   - Use the search feature to find information about any specific cryptocurrency.
   - Change the currency using the dropdown to view prices in INR, USD, or EURO.
 
-Deployment
+## Deployment
 This project is deployed using Vercel. It automatically deploys when changes are pushed to the main branch.
 
-Credits
+## Credits
 CoinGecko API: Provides the real-time cryptocurrency data used in this application.
 Contributing
 Contributions are welcome! If you have any suggestions, bug fixes, or improvements, please fork the repository and create a pull request.
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
