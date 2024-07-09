@@ -7,8 +7,8 @@ import LineChart from "../../components/LineChart/LineChart";
 
 const Coin = () => {
 	const { coinId } = useParams();
-	const [coinData, setCoinData] = useState();
-	const [historicalData, setHistoricalData] = useState();
+	const [coinData, setCoinData] = useState(null);
+	const [historicalData, setHistoricalData] = useState({});
 	const { currency } = useContext(CoinContext);
 
 	const fetchCoinData = async () => {
@@ -49,7 +49,7 @@ const Coin = () => {
 		fetchHistoricalData();
 	}, [coinId, currency]);
 
-	if (!coinData && !historicalData) {
+	if (!coinData || !historicalData) {
 		return <Loader />;
 	}
 
